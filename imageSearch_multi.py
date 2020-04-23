@@ -41,7 +41,7 @@ def get_links(search_string,extra_keyword):
     
     # Assigning the browser variable with chromedriver of Chrome. 
     # options is to go headless and no-verbose
-    browser = webdriver.Chrome("./resources/chromedriver", options=chrome_options)
+    browser = webdriver.Chrome("/usr/bin/chromedriver", options=chrome_options)
     url = "https://www.google.com/search?tbm=isch&q="+extra_keyword+"+"+modified_search_string+"&tbs=isz%3Al"
     retries = 0
     output = [url]
