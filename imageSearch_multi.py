@@ -82,8 +82,8 @@ if __name__ == '__main__':
     #clear_file = open('withlinks.csv', 'w')
     #clear_file.close
     available_cores = multiprocessing.cpu_count()
-    print("Available cores: {}, currently using: {}".format(available_cores, available_cores-1))
-    p = multiprocessing.Pool(available_cores-1)
+    print("Available cores: {}, currently using: {}".format(available_cores, available_cores))
+    p = multiprocessing.Pool(available_cores)
     final_output = p.starmap(get_links, zip(search, itertools.repeat(extra_keyword)))
     #print(final_output)
     write_csv(final_output)
