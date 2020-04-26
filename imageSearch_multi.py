@@ -23,7 +23,7 @@ def get_new_search_terms(file_name):
     return newsearch
 
 def write_csv(search_string, links):
-    csv_f = open("withlinks.csv", "a", newline="")
+    csv_f = open("withlinks.csv", "w", newline="")
     writer = csv.writer(csv_f)
     writer.writerow([search_string] + links)
     csv_f.close
