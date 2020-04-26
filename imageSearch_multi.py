@@ -85,7 +85,7 @@ if __name__ == '__main__':
     print("Available cores: {}, currently using: {}".format(available_cores, available_cores-1))
     p = multiprocessing.Pool(available_cores-1)
     final_output = p.starmap(get_links, zip(search, itertools.repeat(extra_keyword)))
-    print(final_output)
+    #print(final_output)
     write_csv(final_output)
 
     sys.exit()
