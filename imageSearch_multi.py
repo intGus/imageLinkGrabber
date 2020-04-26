@@ -23,7 +23,7 @@ def get_new_search_terms(file_name):
     return newsearch
 
 def write_csv(search_string, links):
-    csv_f = open("withlinks.csv", "w", newline="")
+    csv_f = open("withlinks.csv", "a", newline="")
     writer = csv.writer(csv_f)
     writer.writerow([search_string] + links)
     csv_f.close
@@ -78,10 +78,11 @@ if __name__ == '__main__':
         file_name = input("Enter the source file name: ")
         extra_keyword = input("Enter the extra keyword if any: ")
     search = get_new_search_terms(file_name)
-
+    clear_file = open('withlinks.csv', 'w')
+    clear_file.close
     available_cores = multiprocessing.cpu_count()
-    print("Available cores: {}, currently using: {}".format(available_cores, available_cores-2))
-    p = multiprocessing.Pool(available_cores-2)
+    print("Available cores: {}, currently using: {}".format(available_cores, available_cores-1))
+    p = multiprocessing.Pool(available_cores-1)
     p.starmap(get_links, zip(search, itertools.repeat(extra_keyword)))
 
     sys.exit()
